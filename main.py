@@ -5,8 +5,11 @@ from src.features.meals_generator.components.meals_generator import MealsGenerat
 def main():
     while True:
         profile = profile_generator()
-        meals_gen = MealsGenerator()
-        meals_gen.calc_meal_test()
+        print(f'Profile name: {profile.name}')
+        meals_gen = MealsGenerator(diet=profile.diet, extra_meals=2)
+        my_meals = meals_gen.generate_meals()
+        for key, value in my_meals.items():
+            print(f'{key} => {value.ingredients}')
         input('press any key')
 
 
