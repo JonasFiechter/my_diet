@@ -6,7 +6,9 @@ def profile_generator():
                         age=input(f'Input your age: '), 
                         sex=input(f'Input your sex: '),
                         height=input(f'Input your height: '), 
-                        weight=input(f'Input your weight: ')
+                        weight=input(f'Input your weight: '),
+                        alergics=input(f'Input your alergics: '),
+                        daily_calorie_consumption=input(f'Input your daily calorie comsumption: '),
                         )
     return profile_instance
 
