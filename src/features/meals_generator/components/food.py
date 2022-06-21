@@ -1,7 +1,9 @@
+#  This class will instanciate an object for food with more parameters than original dicts list.
+# Like quantity and others
+
+
 class Food:
-    def __init__(self, name, description, protein, fat, carbohidrate):
+    def __init__(self, name, description, weight):
         self.name = name
         self.description = description
-        self.protein = protein
-        self.fat = fat
-        self.carbohidrate = carbohidrate
+        self.weight = weight
