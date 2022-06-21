@@ -1,19 +1,12 @@
 from .profile import Profile
 
-class ProfileGenerator(Profile):
-    def __init__(self):
-        self.name = input(f'\nInput your name: ')
-        self.age = input(f'\nInput your age: ')
-        self.sex = input(f'\nInput your sex: ')
-        self.height = input(f'\nInput your height: ')
-        self.weight = input(f'\nInput your weight: ')
+def profile_generator():
+    profile_instance = Profile(                        
+                        name=input(f'Input your name: '), 
+                        age=input(f'Input your age: '), 
+                        sex=input(f'Input your sex: '),
+                        height=input(f'Input your height: '), 
+                        weight=input(f'Input your weight: ')
+                        )
+    return profile_instance
 
-    def generator(self):
-        profile_instance = Profile(
-                                    name=self.name, 
-                                    age=self.age, 
-                                    sex=self.sex,
-                                    height=self.height, 
-                                    weight=self.weight
-                                    )
-        return profile_instance
