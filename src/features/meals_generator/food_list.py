@@ -5,8 +5,11 @@ and each item of food returns the percentage of its total mass
 
 # Groups = ['Pasta','Cereal','Vegetable','Fruit','Milk','animal_protein', 'vegetable_protein', ]
 
-def food_filter(_type):
-    return [key for key in foods.keys() if foods[key]['type'] == str(_type)]
+def food_filter(_type, alergics):
+    if not alergics:
+        return [key for key in foods.keys() if foods[key]['type'] == str(_type)]
+    else:
+        return [key for key in foods.keys() if foods[key]['type'] == str(_type) and key not in alergics]
 
 def calculate_calories(ingredient):
     return  (foods[ingredient]['protein'] * 4) + \

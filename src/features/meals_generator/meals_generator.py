@@ -15,9 +15,9 @@ class MealsGenerator():
         self.extra_meals = extra_meals
         #  Inside properties
         #  This will be the list used to sort the ingredients accordly to the profile preference
-        self.protein_ing_list = food_filter(_type='protein')
-        self.carbo_ing_list = food_filter(_type='carbohidrate')
-        self.fat_ing_list = food_filter(_type='fat')
+        self.protein_ing_list = food_filter(_type='protein', alergics = self.profile.alergics)
+        self.carbo_ing_list = food_filter(_type='carbohidrate', alergics = self.profile.alergics)
+        self.fat_ing_list = food_filter(_type='fat', alergics = self.profile.alergics)
         #  Diet List will provide the major filter to build up the meal
         self.meals = ['breakfast', 'lunch', 'dinner']
         self.meal_dict = {}
