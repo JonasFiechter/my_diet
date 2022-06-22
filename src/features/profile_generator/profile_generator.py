@@ -7,59 +7,63 @@ def profile_generator2():
                         name=input(f'Input your name: '), 
                         sex=input(f'Input your sex: '),
                         weight=input(f'Input your weight: '),
-                        alergics=generate_alergics(),
+                        target_weight=input(f'Input your weight: '),
+                        allergics=check_allergy(),
                         calorie_consumption=input(f'Input your daily calorie comsumption: '),
-                        diet=input(f'Input your diet type(low_carb, dash, paleolithic or ketogenic): '),
+                        diet=input(f'Input your diet type(LOW_CARB, DASH, PALEOLITHIC or KETOGENIC): '),
                         )
+    sleep(0.7)
+    print(f'Profile created!')
     return profile_instance
 
 def profile_generator():
     profile_instance = Profile(                        
-                        name='TEST', 
-                        sex=1,
-                        weight=1,
-                        alergics=check_allergy(),
-                        calorie_consumption=3500,
+                        name='Peter Belly', 
+                        sex='male',
+                        weight=80,
+                        target_weight=90,
+                        allergics=check_allergy(),
+                        calorie_consumption=2000,
                         diet='low_carb',
                         )
     return profile_instance
 
 def check_allergy():
-    command = input(f'Do you have any alergic ingredient to avoid? (enter "yes" or press "Enter" to continue): ')
+    command = input(f'Do you have any allergic ingredient to avoid? (enter "yes" or press "Enter" to continue): ')
     if command.lower() == 'yes':
-        return generate_alergics()
+        return generate_allergics()
     elif command and command != 'yes':
         print(f'Invalid command! try again...')
         check_allergy()
     else:
         return []
 
-def generate_alergics(alergic_list=[]):
-    alergic = input('Input your alergic: ')
+def generate_allergics(allergic_list=[]):
+    allergic = input('Input your allergic: ')
 
     #  Invalid commands check
-    if alergic not in foods:
-        alergic = input(f'Alergic not found, check the spelling and try again or press "ENTER" to contiue: ')
-    elif alergic in alergic_list:
+    if allergic not in foods:
+        allergic = input(f'Allergic not found, check the spelling and try again or press "ENTER" to contiue: ')
+    elif allergic in allergic_list:
         sleep(0.5)
-        print(f'Alergic already added!')
-    if alergic and alergic not in alergic_list:
-        alergic_list.append(alergic)
+        print(f'Allergic already added!')
+    if allergic and allergic not in allergic_list:
+        allergic_list.append(allergic)
         sleep(0.5)
-        print('Alergic added!')
+        print('Allergic added!')
     else:
-        return alergic_list
+        return allergic_list
     run = True
     while run:
-        print(f'Your list => {alergic_list}')
-        command = input(f'Input "add" to add more alergics or press "Enter" to exit: ').lower()
+        print(f'Your list => {allergic_list}')
+        command = input(f'Input "add" to add more allergics or press "Enter" to exit: ').lower()
         if command == 'add':
-            return generate_alergics(alergic_list)
+            return generate_allergics(allergic_list)
         elif command and command != 'add':
             sleep(0.5)
             print(f'Command invalid! try again.')
         else:
             print(f'Closing function...')
-            return alergic_list
+            return allergic_list
     
 
