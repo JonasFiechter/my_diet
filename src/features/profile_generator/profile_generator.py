@@ -6,10 +6,10 @@ def profile_generator():
     profile_instance = Profile(                        
                         name=input(f'Input your name: '), 
                         sex=input(f'Input your sex: '),
-                        weight=input(f'Input your weight: '),
-                        target_weight=input(f'Input your target weight: '),
+                        weight=int(input(f'Input your weight: ')),
+                        target_weight=int(input(f'Input your target weight: ')),
                         allergics=check_allergy(),
-                        calorie_consumption=input(f'Input your daily calorie comsumption: '),
+                        calorie_consumption=int(input(f'Input your daily calorie comsumption: ')),
                         diet=check_diet(),
                         )
     sleep(0.7)
@@ -30,7 +30,8 @@ def profile_generator2():
 
 def check_diet():
     diet_list = ('low_carb', 'dash', 'paleolithic', 'ketogenic')
-    diet = input(f'Input your diet type(LOW CARB, DASH, PALEOLITHIC or KETOGENIC): ').lower().replace(' ', '-')
+    diet = input(f'Input your diet type(LOW CARB, DASH, PALEOLITHIC or KETOGENIC): ').lower().replace(' ', '_')
+    print(diet)
     if diet not in diet_list:
         print(f'Invalid command! try again...')
         check_diet()

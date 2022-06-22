@@ -6,7 +6,7 @@ from random import randint
 
 def meal_distribution(profile):
     diet_dict = {
-        'low_carb': (2, 0, 1, 1),
+        'low_carb': (3, 0, 2, 1),
         'dash': (2, 2, 2, 2),
         'paleolithic': (4, 0, 1, 1),
         'ketogenic': (3, 0, 1, 2),
@@ -22,9 +22,9 @@ class MealsGenerator():
 
         self.profile = profile
         self.protein_variety = meal_distribution(profile)[0]
-        self.carbohidrate_variety = meal_distribution(profile)[0]
-        self.fat_variety = meal_distribution(profile)[0]
-        self.extra_meals = meal_distribution(profile)[0]
+        self.carbohidrate_variety = meal_distribution(profile)[1]
+        self.fat_variety = meal_distribution(profile)[2]
+        self.extra_meals = meal_distribution(profile)[3]
         #  Inside properties
         #  These will be the lists used to separate the ingredients accordly to the profile 
         # preference and the type of the ingredient
