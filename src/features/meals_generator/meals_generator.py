@@ -1,3 +1,4 @@
+from numpy import percentile
 from .meal import Meal
 from .food_list import foods, food_filter, calculate_calories
 from random import randint
@@ -79,7 +80,11 @@ class MealsGenerator():
     # properties
     def generate_detailed_meals(self):
         self.profile.calculate_parameters()
-        min_meal_calories = round(self.profile.calorie_consumption / (3 + self.extra_meals))
+
+        #  This var calc the ammount of calories according to the profile wish
+        target_calories = self.profile.calorie_consumption + (((self.profile.target_weight - self.profile.weight) / 30) * 200)
+        print(target_calories)
+        min_meal_calories = round(target_calories / (3 + self.extra_meals))
 
         self.generate_meals()
         for key in self.meal_dict.keys():

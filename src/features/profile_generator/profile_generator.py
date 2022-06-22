@@ -2,31 +2,40 @@ from .profile import Profile
 from ..meals_generator.food_list import foods
 from time import sleep
 
-def profile_generator2():
+def profile_generator():
     profile_instance = Profile(                        
                         name=input(f'Input your name: '), 
                         sex=input(f'Input your sex: '),
                         weight=input(f'Input your weight: '),
-                        target_weight=input(f'Input your weight: '),
+                        target_weight=input(f'Input your target weight: '),
                         allergics=check_allergy(),
                         calorie_consumption=input(f'Input your daily calorie comsumption: '),
-                        diet=input(f'Input your diet type(LOW_CARB, DASH, PALEOLITHIC or KETOGENIC): '),
+                        diet=check_diet(),
                         )
     sleep(0.7)
     print(f'Profile created!')
     return profile_instance
 
-def profile_generator():
+def profile_generator2():
     profile_instance = Profile(                        
                         name='Peter Belly', 
                         sex='male',
-                        weight=80,
-                        target_weight=90,
+                        weight=70,
+                        target_weight=80,
                         allergics=check_allergy(),
-                        calorie_consumption=2000,
+                        calorie_consumption=2500,
                         diet='low_carb',
                         )
     return profile_instance
+
+def check_diet():
+    diet_list = ('low_carb', 'dash', 'paleolithic', 'ketogenic')
+    diet = input(f'Input your diet type(LOW CARB, DASH, PALEOLITHIC or KETOGENIC): ').lower().replace(' ', '-')
+    if diet not in diet_list:
+        print(f'Invalid command! try again...')
+        check_diet()
+    else:
+        return diet
 
 def check_allergy():
     command = input(f'Do you have any allergic ingredient to avoid? (enter "yes" or press "Enter" to continue): ')
