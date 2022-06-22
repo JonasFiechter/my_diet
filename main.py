@@ -5,12 +5,14 @@ from src.features.meals_generator.components.meals_generator import MealsGenerat
 def main():
     while True:
         profile = profile_generator()
-        print(f'Profile name: {profile.name}')
-        meals_gen = MealsGenerator(diet=profile.diet, extra_meals=2)
-        my_meals = meals_gen.generate_meals()
-        for key, value in my_meals.items():
-            print(f'{key} => {value.ingredients}')
-        input('press any key')
+        print(f'Hello: {profile.name}!')
+
+        meals_gen = MealsGenerator(profile=profile, extra_meals=2)
+        meals_gen.generate_detailed_meals()
+        meals_gen.show_information()
+
+        if input(f'\npress: ') == 'e':
+            return False
 
 
 if __name__ == '__main__':
