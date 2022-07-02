@@ -26,7 +26,7 @@ foods = {
     },
     'apple': {
         'group': 'fruit',
-        'type': 'fat',
+        'type': 'fruit',
         'protein': 0.01,
         'fat': 0.01,
         'carbohidrate': 0.11,

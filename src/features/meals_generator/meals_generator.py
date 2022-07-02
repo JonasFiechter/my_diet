@@ -28,9 +28,9 @@ class MealsGenerator():
         #  Inside properties
         #  These will be the lists used to separate the ingredients accordly to the profile 
         # preference and the type of the ingredient
-        self.protein_ing_list = food_filter(_type='protein', allergics = self.profile.allergics)
-        self.carbo_ing_list = food_filter(_type='carbohidrate', allergics = self.profile.allergics)
-        self.fat_ing_list = food_filter(_type='fat', allergics = self.profile.allergics)
+        self.protein_ing_list = food_filter(_type='protein', allergics=self.profile.allergics)
+        self.carbo_ing_list = food_filter(_type='carbohidrate', allergics=self.profile.allergics)
+        self.fat_ing_list = food_filter(_type='fat', allergics=self.profile.allergics)
         #  Diet List will provide the major filter to build up the meal
         self.meals = ['breakfast', 'lunch', 'dinner']
         self.meal_dict = {}
